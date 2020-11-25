@@ -39,11 +39,16 @@
     <Compile Include="BL_Product_Class.cs" />
     <Compile Include="BL_Login_Class.cs" />
     <Compile Include="BLMainClass.cs" />
+    <Compile Include="BL_Stock_Class.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{28bb4b51-e17e-46aa-80ed-c5bb095914a3}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAccess\WebAccess.csproj">
+      <Project>{9ba9926b-b825-4bb7-bcff-f06f556d06c6}</Project>
+      <Name>WebAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

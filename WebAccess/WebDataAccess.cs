@@ -8,34 +8,28 @@ using System.Runtime.InteropServices;
 
 namespace WebAccess
 {
-    class WebScraping
+     public class WebDataAccess
     {
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
 
-        static void Main()
+         public string Scraper(string scrapeLink)
         {
-            WebScraping er = new WebScraping();
-            // er.Scraper();
-            Console.WriteLine(er.IsConnectedToInternet());
-            string a = Console.ReadLine();
-        }
-        
-         public void Scraper()
-        {
+           // string s = "https://www.yellowpages.com/search?search_terms=Software&geo_location_terms=Sydney%2C+ND";
             HtmlAgilityPack.HtmlWeb webScraper = new HtmlAgilityPack.HtmlWeb();
-            HtmlAgilityPack.HtmlDocument doc = webScraper.Load("https://www.yellowpages.com/search?search_terms=Software&geo_location_terms=Sydney%2C+ND");
+            HtmlAgilityPack.HtmlDocument doc = webScraper.Load(scrapeLink);
             var headernames = doc.DocumentNode.SelectNodes("//a[@class='business-name']").ToList();
+            string headers = "";
             foreach (var item in headernames)
             {
-                Console.WriteLine(item.InnerText);
+                headers += "  {" + item.InnerText + "}  ";
             }
+            return headers;
         }
         
         //Creating a function that uses the API function...
-        bool IsConnectedToInternet()
+         public bool IsConnectedToInternet()
         {
-
             bool a;
             int Desc;
             a = InternetGetConnectedState(out Desc, 0);

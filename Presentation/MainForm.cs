@@ -29,5 +29,12 @@ namespace Presentation
             productApp.MdiParent = this;
             productApp.Show();
         }
+
+        private void stocksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StockForm stockApp = new StockForm();
+            stockApp.MdiParent = this;
+            stockApp.Show();
+        }
     }
 }

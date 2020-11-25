@@ -67,6 +67,7 @@ namespace Presentation
             this.stocksToolStripMenuItem.Name = "stocksToolStripMenuItem";
             this.stocksToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.stocksToolStripMenuItem.Text = "&Stock";
+            this.stocksToolStripMenuItem.Click += new System.EventHandler(this.stocksToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
