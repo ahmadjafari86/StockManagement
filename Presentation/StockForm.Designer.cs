@@ -61,7 +61,7 @@ namespace Presentation
             this.txtScraperContext.Location = new System.Drawing.Point(12, 12);
             this.txtScraperContext.Multiline = true;
             this.txtScraperContext.Name = "txtScraperContext";
-            this.txtScraperContext.Size = new System.Drawing.Size(522, 275);
+            this.txtScraperContext.Size = new System.Drawing.Size(521, 122);
             this.txtScraperContext.TabIndex = 3;
             // 
             // btnScraper
@@ -76,15 +76,15 @@ namespace Presentation
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(12, 309);
+            this.txtUrl.Location = new System.Drawing.Point(12, 177);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(522, 20);
+            this.txtUrl.Size = new System.Drawing.Size(521, 20);
             this.txtUrl.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 341);
+            this.label1.Location = new System.Drawing.Point(9, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 6;
