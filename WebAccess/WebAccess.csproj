@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StockDataAccess.cs" />
     <Compile Include="WAMainClass.cs" />
     <Compile Include="WebDataAccess.cs" />
   </ItemGroup>

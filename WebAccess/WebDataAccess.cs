@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using System.Runtime.InteropServices;
+using System.Net;
+using System.Threading;
 
 namespace WebAccess
 {
@@ -30,10 +32,18 @@ namespace WebAccess
         //Creating a function that uses the API function...
          public bool IsConnectedToInternet()
         {
-            bool a;
-            int Desc;
-            a = InternetGetConnectedState(out Desc, 0);
-            return a;
+                try
+                {
+                    using (var client = new WebClient())
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
         }
 
     }
