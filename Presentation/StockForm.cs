@@ -22,43 +22,51 @@ namespace Presentation
         private readonly BL_Stock_Class bLStockClass = new BL_Stock_Class();
 
         
-        public bool taskValue = false;
-        public async Task Main()
+        public int taskValue = -1;
+        public async Task CheckInternetStatus()
         { 
             await Task.Run(() =>
             {
-                taskValue = bLStockClass.InternetStatus();
-                
+                taskValue =Convert.ToInt32(bLStockClass.InternetStatus());
             });
-            setLabelData();
-        }
-        private void btnCheckInternetStatus_Click(object sender, EventArgs e)
-        {
-            Main();
-        }
-
-        private void setLabelData()
-        {
-            if (taskValue)
+            if (taskValue == 1)
             {
                 labInternetStatus.Text = "Internet access";
                 labInternetStatus.BackColor = System.Drawing.Color.Green;
-                MessageBox.Show(" true");
             }
-            else
+            else if (taskValue == 0)
             {
                 labInternetStatus.Text = "Not connected";
                 labInternetStatus.BackColor = System.Drawing.Color.Red;
-                MessageBox.Show(" false");
             }
-
         }
 
-        private void btnScraper_Click(object sender, EventArgs e)
+        private void btnCheckInternetStatus_Click(object sender, EventArgs e)
         {
-            //if (bLStockClass.InternetStatus())
-            //    txtScraperContext.Text = bLStockClass.WebScraping(txtUrl.Text);
-            //else MessageBox.Show("Check your internet connection...");
+            _ = CheckInternetStatus();
         }
+        public string getPrice = "";
+
+        public async Task GetStockData(string stock,string dataSource)
+        {
+            await Task.Run(() =>
+            {
+                getPrice = Convert.ToString(bLStockClass.WebScraping(stock, dataSource));
+            });
+            if (getPrice.Contains("Error!"))
+            {
+                txtCurrentPrice.Text = "";
+                MessageBox.Show("Error!");
+            }
+            else txtCurrentPrice.Text = getPrice;
+        }
+        private void btnGetStockData_Click(object sender, EventArgs e)
+        {
+            _ = GetStockData(cmbStockList.Text, txtDataSource.Text);
+        }
+       
+
+
+
     }
 }

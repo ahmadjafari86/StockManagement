@@ -31,17 +31,20 @@ namespace Presentation
         {
             this.btnCheckInternetStatus = new System.Windows.Forms.Button();
             this.labInternetStatus = new System.Windows.Forms.Label();
-            this.txtScraperContext = new System.Windows.Forms.TextBox();
-            this.btnScraper = new System.Windows.Forms.Button();
-            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.txtDataSource = new System.Windows.Forms.TextBox();
+            this.btnGetStockData = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbStockList = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCurrentPrice = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCheckInternetStatus
             // 
-            this.btnCheckInternetStatus.Location = new System.Drawing.Point(383, 415);
+            this.btnCheckInternetStatus.Location = new System.Drawing.Point(384, 174);
             this.btnCheckInternetStatus.Name = "btnCheckInternetStatus";
-            this.btnCheckInternetStatus.Size = new System.Drawing.Size(150, 23);
+            this.btnCheckInternetStatus.Size = new System.Drawing.Size(150, 40);
             this.btnCheckInternetStatus.TabIndex = 1;
             this.btnCheckInternetStatus.Text = "Check internet status";
             this.btnCheckInternetStatus.UseVisualStyleBackColor = true;
@@ -49,56 +52,93 @@ namespace Presentation
             // 
             // labInternetStatus
             // 
+            this.labInternetStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labInternetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInternetStatus.Location = new System.Drawing.Point(166, 273);
+            this.labInternetStatus.Location = new System.Drawing.Point(169, 174);
             this.labInternetStatus.Name = "labInternetStatus";
-            this.labInternetStatus.Size = new System.Drawing.Size(195, 48);
+            this.labInternetStatus.Size = new System.Drawing.Size(209, 40);
             this.labInternetStatus.TabIndex = 2;
             this.labInternetStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtScraperContext
+            // txtDataSource
             // 
-            this.txtScraperContext.Location = new System.Drawing.Point(15, 80);
-            this.txtScraperContext.Multiline = true;
-            this.txtScraperContext.Name = "txtScraperContext";
-            this.txtScraperContext.Size = new System.Drawing.Size(238, 122);
-            this.txtScraperContext.TabIndex = 3;
+            this.txtDataSource.Location = new System.Drawing.Point(116, 29);
+            this.txtDataSource.Multiline = true;
+            this.txtDataSource.Name = "txtDataSource";
+            this.txtDataSource.Size = new System.Drawing.Size(386, 21);
+            this.txtDataSource.TabIndex = 3;
             // 
-            // btnScraper
+            // btnGetStockData
             // 
-            this.btnScraper.Location = new System.Drawing.Point(12, 415);
-            this.btnScraper.Name = "btnScraper";
-            this.btnScraper.Size = new System.Drawing.Size(150, 23);
-            this.btnScraper.TabIndex = 4;
-            this.btnScraper.Text = "Internet scraping";
-            this.btnScraper.UseVisualStyleBackColor = true;
-            this.btnScraper.Click += new System.EventHandler(this.btnScraper_Click);
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Location = new System.Drawing.Point(106, 33);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(147, 20);
-            this.txtUrl.TabIndex = 5;
+            this.btnGetStockData.Location = new System.Drawing.Point(13, 174);
+            this.btnGetStockData.Name = "btnGetStockData";
+            this.btnGetStockData.Size = new System.Drawing.Size(150, 40);
+            this.btnGetStockData.TabIndex = 4;
+            this.btnGetStockData.Text = "Get stock price";
+            this.btnGetStockData.UseVisualStyleBackColor = true;
+            this.btnGetStockData.Click += new System.EventHandler(this.btnGetStockData_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(22, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Search for stock:";
+            this.label1.Text = "Select stock:";
+            // 
+            // cmbStockList
+            // 
+            this.cmbStockList.FormattingEnabled = true;
+            this.cmbStockList.Items.AddRange(new object[] {
+            "AAPL",
+            "AMZN",
+            "FB",
+            "GOOG",
+            "TSLA",
+            "TWTR"});
+            this.cmbStockList.Location = new System.Drawing.Point(116, 79);
+            this.cmbStockList.Name = "cmbStockList";
+            this.cmbStockList.Size = new System.Drawing.Size(121, 21);
+            this.cmbStockList.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Data source:";
+            // 
+            // txtCurrentPrice
+            // 
+            this.txtCurrentPrice.Location = new System.Drawing.Point(384, 79);
+            this.txtCurrentPrice.Name = "txtCurrentPrice";
+            this.txtCurrentPrice.Size = new System.Drawing.Size(118, 20);
+            this.txtCurrentPrice.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(308, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Current price:";
             // 
             // StockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 456);
+            this.ClientSize = new System.Drawing.Size(546, 234);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtCurrentPrice);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbStockList);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtUrl);
-            this.Controls.Add(this.btnScraper);
-            this.Controls.Add(this.txtScraperContext);
+            this.Controls.Add(this.btnGetStockData);
+            this.Controls.Add(this.txtDataSource);
             this.Controls.Add(this.btnCheckInternetStatus);
             this.Controls.Add(this.labInternetStatus);
             this.Name = "StockForm";
@@ -111,9 +151,12 @@ namespace Presentation
         #endregion
         private System.Windows.Forms.Button btnCheckInternetStatus;
         private System.Windows.Forms.Label labInternetStatus;
-        private System.Windows.Forms.TextBox txtScraperContext;
-        private System.Windows.Forms.Button btnScraper;
-        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.TextBox txtDataSource;
+        private System.Windows.Forms.Button btnGetStockData;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbStockList;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCurrentPrice;
+        private System.Windows.Forms.Label label4;
     }
 }
