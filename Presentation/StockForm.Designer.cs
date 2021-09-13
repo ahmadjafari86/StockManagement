@@ -38,11 +38,15 @@ namespace Presentation
             this.label3 = new System.Windows.Forms.Label();
             this.txtCurrentPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.grid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCheckInternetStatus
             // 
-            this.btnCheckInternetStatus.Location = new System.Drawing.Point(384, 174);
+            this.btnCheckInternetStatus.Location = new System.Drawing.Point(384, 135);
             this.btnCheckInternetStatus.Name = "btnCheckInternetStatus";
             this.btnCheckInternetStatus.Size = new System.Drawing.Size(150, 40);
             this.btnCheckInternetStatus.TabIndex = 1;
@@ -54,7 +58,7 @@ namespace Presentation
             // 
             this.labInternetStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labInternetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInternetStatus.Location = new System.Drawing.Point(169, 174);
+            this.labInternetStatus.Location = new System.Drawing.Point(169, 135);
             this.labInternetStatus.Name = "labInternetStatus";
             this.labInternetStatus.Size = new System.Drawing.Size(209, 40);
             this.labInternetStatus.TabIndex = 2;
@@ -70,7 +74,7 @@ namespace Presentation
             // 
             // btnGetStockData
             // 
-            this.btnGetStockData.Location = new System.Drawing.Point(13, 174);
+            this.btnGetStockData.Location = new System.Drawing.Point(13, 135);
             this.btnGetStockData.Name = "btnGetStockData";
             this.btnGetStockData.Size = new System.Drawing.Size(150, 40);
             this.btnGetStockData.TabIndex = 4;
@@ -127,11 +131,40 @@ namespace Presentation
             this.label4.TabIndex = 12;
             this.label4.Text = "Current price:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 198);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 45);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Call Rapid API";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(550, 29);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(365, 146);
+            this.textBox1.TabIndex = 14;
+            // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Location = new System.Drawing.Point(169, 198);
+            this.grid.Name = "grid";
+            this.grid.Size = new System.Drawing.Size(746, 286);
+            this.grid.TabIndex = 15;
+            // 
             // StockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 234);
+            this.ClientSize = new System.Drawing.Size(927, 496);
+            this.Controls.Add(this.grid);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCurrentPrice);
             this.Controls.Add(this.label3);
@@ -143,6 +176,7 @@ namespace Presentation
             this.Controls.Add(this.labInternetStatus);
             this.Name = "StockForm";
             this.Text = "Stock";
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +192,8 @@ namespace Presentation
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCurrentPrice;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView grid;
     }
 }

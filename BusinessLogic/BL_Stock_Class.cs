@@ -11,6 +11,7 @@ namespace BusinessLogic
     {
         private readonly WebDataAccess webDataAccess = new WebDataAccess();
         private readonly StockDataAccess stockDataAccess = new StockDataAccess();
+        private readonly YahooFinanceData yahooFinanceData = new YahooFinanceData();
 
         public bool InternetStatus ()
         { 
@@ -18,7 +19,15 @@ namespace BusinessLogic
         }
         public string WebScraping(string stock, string dataSource)
         {
-            return stockDataAccess.GetStockData(stockDataAccess.PrepareUrl(stock, dataSource));
+            if (InternetStatus())
+                return stockDataAccess.GetStockData(stockDataAccess.PrepareUrl(stock, dataSource));
+            else return "No internet access!";
+        }
+        public string GetYahooFinanceData()
+        {
+            if (InternetStatus())
+                return yahooFinanceData.GetYahooStock();
+            else return "No internet access!";
         }
     }
 }

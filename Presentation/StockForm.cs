@@ -9,6 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using YahooFinanceApi;
+//using IronPython.Hosting;
+//using Microsoft.Scripting.Hosting;
 
 namespace Presentation
 {
@@ -28,6 +31,7 @@ namespace Presentation
             await Task.Run(() =>
             {
                 taskValue =Convert.ToInt32(bLStockClass.InternetStatus());
+                
             });
             if (taskValue == 1)
             {
@@ -43,7 +47,7 @@ namespace Presentation
 
         private void btnCheckInternetStatus_Click(object sender, EventArgs e)
         {
-            _ = CheckInternetStatus();
+            _= CheckInternetStatus();
         }
         public string getPrice = "";
 
@@ -53,20 +57,24 @@ namespace Presentation
             {
                 getPrice = Convert.ToString(bLStockClass.WebScraping(stock, dataSource));
             });
-            if (getPrice.Contains("Error!"))
-            {
-                txtCurrentPrice.Text = "";
-                MessageBox.Show("Error!");
-            }
+            if (getPrice.Contains("No internet access!"))
+                MessageBox.Show("No internet access!");
+            else if (getPrice.Contains("Error!  "))
+                MessageBox.Show(getPrice);
             else txtCurrentPrice.Text = getPrice;
         }
         private void btnGetStockData_Click(object sender, EventArgs e)
         {
             _ = GetStockData(cmbStockList.Text, txtDataSource.Text);
         }
-       
 
-
-
+        private void button1_ClickAsync(object sender, EventArgs e)
+        {
+            string result = bLStockClass.GetYahooFinanceData();
+            if(result.Contains("No internet access!"))
+                MessageBox.Show(result);
+            else textBox1.Text = result;
+        }
+     
     }
 }
